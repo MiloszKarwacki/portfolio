@@ -3,7 +3,6 @@ import React from "react";
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
 import { useSectionInView } from "@/lib/useInView";
-
 //Animation
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
@@ -51,12 +50,12 @@ const About = () => {
                   damping={1e-1}
                   triggerOnce={true}
                 >
-                  <p className="mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70">
+                  <p className="mt-2 leading-relaxed text-sm text-text-muted-light dark:text-text-muted-dark">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Provident molestias aspernatur accusantium vitae
                     consequuntur sunt impedit voluptates facere nostrum! Illum
                     deserunt culpa aspernatur voluptas nostrum facilis a, omnis
-                    dolorum vel! tescik
+                    dolorum vel!
                   </p>
                 </Fade>
                 <Fade
@@ -75,7 +74,7 @@ const About = () => {
                   damping={1e-1}
                   triggerOnce={true}
                 >
-                  <p className="mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70">
+                  <p className="mt-2 leading-relaxed text-sm text-text-muted-light dark:text-text-muted-dark">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
                     quam numquam vero repudiandae voluptas, illo voluptatibus
                     rerum eos facilis vel quidem, tenetur exercitationem?
@@ -101,7 +100,7 @@ const About = () => {
                 height={600}
                 quality={100}
                 priority
-                className="rounded-full mt-8 object-cover"
+                className="rounded-full mt-8 object-cover shadow-xl"
               />
             </Fade>
           </div>

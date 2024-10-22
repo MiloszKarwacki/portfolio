@@ -1,9 +1,7 @@
 "use client";
-
 import SectionHeading from "./SectionHeading";
 import { skillsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/useInView";
-
 //Animation
 import { motion } from "framer-motion";
 
@@ -28,10 +26,10 @@ export default function Skills() {
     <section
       ref={ref}
       id="skills"
-      className="mb-28 max-w-[53rem] scroll-t-28 text-center sm:mb-40"
+      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
       <SectionHeading>{"My Skills"}</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
+      <ul className="flex flex-wrap justify-center gap-2 text-lg text-text-primary-light">
         {skillsData.map((skill, index) => (
           <motion.li
             variants={fadeInAnimationVariants}
@@ -42,7 +40,14 @@ export default function Skills() {
             }}
             custom={index}
             key={index}
-            className="bg-white border-black rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
+            className="bg-background-elevated-light 
+              border border-ui-border-light 
+              rounded-xl px-5 py-3 
+              dark:bg-background-transparent-dark 
+              dark:text-text-muted-dark
+              hover:bg-background-hover-light
+              dark:hover:bg-background-hover-dark
+              transition-colors"
           >
             {skill}
           </motion.li>

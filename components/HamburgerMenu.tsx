@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { Link } from "@/lib/types";
 import NextLink from "next/link";
@@ -33,7 +32,14 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
         initial="visible"
         whileTap="tap"
         whileHover="hover"
-        className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950"
+        className="bg-background-elevated-light w-[3rem] h-[3rem] 
+          drop-shadow backdrop-blur-[0.5rem] 
+          border border-ui-border-light 
+          shadow-xl dark:shadow-xl-dark 
+          rounded-full flex items-center justify-center 
+          dark:bg-background-elevated-dark 
+          dark:border-ui-border-dark
+          transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
@@ -45,7 +51,15 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
             initial="start"
             animate="visible"
             exit="start"
-            className="w-full bg-white drop-shadow border border-slate-400 overflow-hidden dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex flex-col item-center justify-center dark:bg-gray-950 p-1"
+            className="w-full bg-background-elevated-light 
+              drop-shadow border border-ui-border-light 
+              overflow-hidden border-opacity-60 
+              shadow-xl dark:shadow-xl-dark 
+              rounded-2xl flex flex-col item-center justify-center 
+              dark:bg-background-elevated-dark 
+              dark:border-ui-border-dark 
+              p-1
+              transition-colors"
           >
             {links.map((link, index) => (
               <motion.div
@@ -57,9 +71,11 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
               >
                 <NextLink
                   className={clsx(
-                    "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 cursor-pointer",
+                    "flex w-full items-center justify-center px-3 py-3 transition cursor-pointer",
+                    "text-text-muted-light hover:text-text-primary-light",
+                    "dark:text-text-muted-dark dark:hover:text-text-primary-dark",
                     {
-                      "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded":
+                      "text-text-primary-light bg-background-hover-light dark:text-text-primary-dark dark:bg-background-hover-dark rounded":
                         activeSection === link.hash,
                       "rounded-t-xl": index === 0,
                       "rounded-b-xl": index === links.length - 1,

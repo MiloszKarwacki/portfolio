@@ -12,6 +12,19 @@ const LanguageSwitch: React.FC = () => {
     hidden: { scale: 0.5, opacity: 0, y: 50, x: 25 },
   };
 
+  const commonButtonClasses = `
+    flex justify-center items-center 
+    rounded-full 
+    backdrop-blur-md
+    bg-background-transparent-light
+    border border-ui-border-light
+    dark:bg-background-transparent-dark
+    dark:border-ui-border-dark
+    text-text-primary-light
+    dark:text-text-primary-dark
+    transition-colors
+  `;
+
   return (
     <div>
       <AnimatePresence>
@@ -23,14 +36,14 @@ const LanguageSwitch: React.FC = () => {
             exit="hidden"
             variants={switchVariants}
             transition={{ duration: 0.3 }}
-            className="hidden md:flex items-center justify-center w-[2rem] h-[2rem] rounded-full bg-opacity-20 backdrop-blur-md bg-white dark:bg-gray-800 dark:bg-opacity-20 border border-gray-200 dark:border-gray-700"
+            className={`hidden md:flex w-[2rem] h-[2rem] ${commonButtonClasses}`}
           >
             {language === "en" ? "EN" : "PL"}
           </motion.button>
         )}
       </AnimatePresence>
       <motion.button
-        className="w-[3rem] h-[3rem] flex justify-center items-center rounded-full bg-opacity-20 backdrop-blur-md bg-white dark:bg-gray-800 dark:bg-opacity-20 border border-gray-200 dark:border-gray-700 shadow-lg"
+        className={`w-[3rem] h-[3rem] shadow-xl dark:shadow-xl-dark ${commonButtonClasses}`}
         variants={switchVariants}
         initial="visible"
         whileHover="hover"

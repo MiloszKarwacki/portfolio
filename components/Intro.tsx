@@ -99,22 +99,39 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
+          className="group bg-ui-button-primary-light text-text-inverse-light 
+            px-7 py-3 flex items-center gap-2 rounded-full outline-none 
+            focus:scale-110 hover:scale-110 
+            hover:bg-ui-button-primary-hover-light 
+            dark:bg-background-transparent-dark 
+            dark:text-text-inverse-light
+            active:scale-105 transition"
           onClick={handleConnectClick}
         >
-          Connect <Mail color={"#9ca3af"} />
+          Connect <Mail className="text-text-muted-light" />
         </Link>
+
         <a
           href="#"
           target="_blank"
-          className="bg-gray-900 text-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="bg-ui-button-primary-light text-text-inverse-light 
+            p-4 flex items-center gap-2 rounded-full 
+            focus:scale-[1.15] hover:scale-[1.15] 
+            active:scale-105 transition cursor-pointer 
+            dark:bg-background-transparent-dark 
+            dark:text-text-muted-dark"
         >
           <BsInstagram />
         </a>
         <a
           href="#"
           target="_blank"
-          className="bg-gray-900 text-white p-4 text-[1.35rem] flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          className="bg-ui-button-primary-light text-text-inverse-light 
+            p-4 text-[1.35rem] flex items-center gap-2 rounded-full 
+            focus:scale-[1.15] hover:scale-[1.15] 
+            active:scale-105 transition cursor-pointer 
+            dark:bg-background-transparent-dark 
+            dark:text-text-muted-dark"
         >
           <FaGithubSquare />
         </a>
