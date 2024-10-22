@@ -56,7 +56,7 @@ const About = () => {
                     Provident molestias aspernatur accusantium vitae
                     consequuntur sunt impedit voluptates facere nostrum! Illum
                     deserunt culpa aspernatur voluptas nostrum facilis a, omnis
-                    dolorum vel!
+                    dolorum vel! tescik
                   </p>
                 </Fade>
                 <Fade
