@@ -1,4 +1,3 @@
-import { use } from "framer-motion/client";
 import React from "react";
 import { useFormStatus } from "react-dom";
 import { FaPaperPlane } from "react-icons/fa";

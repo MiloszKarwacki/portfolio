@@ -6,6 +6,7 @@ import NavBar from "@/components/NavBar";
 import ThemeSwitch from "@/components/ThemeControler";
 import ThemeContextProvider from "@/containers/theme-context";
 import { LanguageProvider } from "@/containers/languageContext";
+import Footer from "@/components/Footer";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -36,7 +37,9 @@ export default function RootLayout({
             <Providers>
               <NavBar />
               {children}
+
               <ThemeSwitch />
+              <Footer />
             </Providers>
           </LanguageProvider>
         </ThemeContextProvider>

@@ -1,4 +1,3 @@
-import { h2 } from "framer-motion/client";
 import React from "react";
 
 type SectionHeadingProps = {
