@@ -16,10 +16,13 @@ const Contact = () => {
     e.preventDefault();
     // Here you would typically handle the form submission
     // For example, send the data to your server
+
     // For demonstration, we'll just set isSubmitted to true
     setIsSubmitted(true);
+
     // Reset the form
     e.currentTarget.reset();
+
     // Hide the notification after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
   };
@@ -42,7 +45,7 @@ const Contact = () => {
         damping={1e-1}
         triggerOnce={true}
       >
-        <p className="text-text-muted-light -mt-6 dark:text-text-muted-dark">
+        <p className="text-gray-700 -mt-6 dark:text-white/80">
           {"Feel free to contact me directly through this form"}
         </p>
       </Fade>
@@ -54,23 +57,11 @@ const Contact = () => {
         triggerOnce={true}
       >
         <form
-          className="mt-10 flex flex-col items-center"
+          className="mt-10 flex flex-col items-center dark:text-black"
           onSubmit={handleSubmit}
         >
           <input
-            className="h-14 px-4 rounded-lg 
-              border border-ui-border-light
-              bg-background-elevated-light
-              text-text-primary-light
-              dark:border-ui-border-dark
-              dark:bg-background-elevated-dark
-              dark:text-text-primary-dark
-              w-full
-              focus:outline-none
-              focus:ring-2
-              focus:ring-primary-light
-              dark:focus:ring-primary-dark
-              transition-colors"
+            className="h-14 px-4 rounded-lg border-black dark:bg-white dark:text-black w-full"
             name="senderEmail"
             type="email"
             required
@@ -79,19 +70,7 @@ const Contact = () => {
           />
           <textarea
             ref={messageRef}
-            className="h-52 my-3 rounded-lg resize-none 
-              border border-ui-border-light
-              bg-background-elevated-light
-              text-text-primary-light
-              dark:border-ui-border-dark
-              dark:bg-background-elevated-dark
-              dark:text-text-primary-dark
-              p-4 w-full
-              focus:outline-none
-              focus:ring-2
-              focus:ring-primary-light
-              dark:focus:ring-primary-dark
-              transition-colors"
+            className="h-52 my-3 rounded-lg resize-none border-black p-4 w-full"
             name="message"
             placeholder={"Your message"}
             required
@@ -108,11 +87,7 @@ const Contact = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
-            className="fixed bottom-4 left-0 right-0 mx-auto w-max 
-              bg-state-success text-text-inverse-light 
-              px-6 py-3 rounded-full 
-              shadow-xl dark:shadow-xl-dark 
-              z-50"
+            className="fixed bottom-4 left-0 right-0 mx-auto w-max bg-green-500 text-white px-6 py-3 rounded-full shadow-lg z-50"
           >
             Message sent successfully!
           </motion.div>

@@ -22,7 +22,7 @@ export const links: Link[] = [
 
 export const projectsData: ProjectInfo[] = [
     {
-        title: "Snowlake Theme",
+        title: "First App",
         description: 
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
         tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
@@ -30,7 +30,7 @@ export const projectsData: ProjectInfo[] = [
         link: "https://www.google.com",
     },
     {
-        title: "Budget App",
+        title: "Second App",
         description: 
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
         tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
@@ -38,7 +38,7 @@ export const projectsData: ProjectInfo[] = [
         link: "https://www.google.com",
     },
     {
-        title: "Storage App",
+        title: "Third App",
         description: 
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
         tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
@@ -46,7 +46,7 @@ export const projectsData: ProjectInfo[] = [
         link: "https://www.google.com",
     },
     {
-        title: "Mission Theme",
+        title: "Fourth Theme",
         description: 
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
         tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],

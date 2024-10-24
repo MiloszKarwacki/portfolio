@@ -1,9 +1,11 @@
 "use client";
+
 import React from "react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { Link } from "@/lib/types";
 import { useActiveSectionContext } from "@/containers/activeSection";
+
 //Animation
 import { motion } from "framer-motion";
 
@@ -12,27 +14,19 @@ type HeaderProps = { links: Link[] };
 const Header = ({ links }: HeaderProps) => {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  console.log("Active Section:", activeSection);
 
   return (
     <header className="hidden md:flex items-center justify-center fixed z-[999] w-full mt-4">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex p-1 rounded-none sm:rounded-full 
-          border border-ui-border-light border-opacity-40
-          bg-background-transparent-light
-          backdrop-blur-[0.5rem] 
-          shadow-xl dark:shadow-xl-dark
-          dark:bg-background-transparent-dark
-          dark:border-ui-border-dark
-          transition-colors"
+        className="flex p-1  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
       >
         <motion.ul
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="flex flex-wrap items-center justify-center gap-y-1 
-            text-[0.9rem] font-medium 
-            text-text-muted-light"
+          className="flex flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500"
         >
           {links.map((link) => (
             <li
@@ -41,10 +35,9 @@ const Header = ({ links }: HeaderProps) => {
             >
               <NextLink
                 className={clsx(
-                  "flex w-full items-center justify-center px-3 transition",
-                  "hover:text-text-primary-light dark:hover:text-text-primary-dark",
+                  "flex w-full items-center justify-center px-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",
                   {
-                    "text-text-primary-light dark:text-text-primary-dark":
+                    "text-gray-950 dark:text-gray-200":
                       activeSection === link.hash,
                   }
                 )}
@@ -63,9 +56,7 @@ const Header = ({ links }: HeaderProps) => {
                       damping: 30,
                     }}
                     layoutId="activeSection"
-                    className="bg-background-hover-light 
-                      dark:bg-background-hover-dark 
-                      rounded-full absolute inset-0 -z-10"
+                    className="bg-gray-100 rounded-full absolute inset-0 -z-10 dark:bg-gray-800"
                   ></motion.span>
                 )}
               </NextLink>
