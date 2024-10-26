@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
 import Providers from "../containers/Providers";
-import NavBar from "@/components/NavBar";
 import ThemeSwitch from "@/components/ThemeControler";
 import ThemeContextProvider from "@/containers/theme-context";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -33,7 +33,7 @@ export default function RootLayout({
         <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-[10] flex-1 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
         <ThemeContextProvider>
             <Providers>
-              <NavBar />
+              <Header />
               {children}
               <ThemeSwitch />
               <Footer />

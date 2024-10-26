@@ -4,13 +4,12 @@ import { useTheme } from "@/containers/theme-context";
 import React from "react";
 import Switch from "./ColorSwitch";
 import { Moon, Sun } from "lucide-react";
-import LanguageSwitch from "./LangueSwitch";
 
 const ThemeContext = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed bottom-5 right-10 flex items-center space-x-4">
+    <div className="fixed bottom-5 right-12 flex items-center space-x-4">
       <Switch
         activeButton={theme === "light" ? <Sun /> : <Moon />}
         hiddenButton={
