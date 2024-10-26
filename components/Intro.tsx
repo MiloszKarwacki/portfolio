@@ -83,7 +83,7 @@ export default function Intro() {
       >
         <h1 className="mb-12 mt-4 text-2xl sm:text-4xl">
           <span className="font-medium !leading-[1.5]">
-            Grow your business with a new website.
+            Lorem, ipsum dolor sit amet coś tam...
           </span>{" "}
           <p className="text-[14px]">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
