@@ -1,13 +1,15 @@
-import React from "react";
+import { FC, ReactNode } from "react";
 
-type SectionHeadingProps = {
-  children: React.ReactNode;
-};
+interface SectionHeadingProps {
+  children: ReactNode;
+}
 
-export default function SectionHeading({ children }: SectionHeadingProps) {
+const SectionHeading: FC<SectionHeadingProps> = ({ children }) => {
   return (
     <h2 className="text-3xl font-medium capitalize mb-8 text-center">
       {children}
     </h2>
   );
-}
+};
+
+export default SectionHeading;

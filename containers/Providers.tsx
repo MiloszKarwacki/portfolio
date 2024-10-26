@@ -1,12 +1,14 @@
-import ActiveSectionContextProvider from "./activeSection";
-import React from "react";
+"use client";
 
-type ProvidersProps = {
-  children: React.ReactNode;
+import { FC, ReactNode } from "react";
+import ActiveSectionContextProvider from "./ActiveSection";
+
+interface ProvidersProps {
+  children: ReactNode;
+}
+
+const Providers: FC<ProvidersProps> = ({ children }) => {
+  return <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>;
 };
 
-export default function Prvider({ children }: ProvidersProps) {
-  return (
-    <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>
-  );
-}
+export default Providers;

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsInstagram } from "react-icons/bs";
@@ -10,9 +9,11 @@ import { Mail } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/useInView";
-import { useActiveSectionContext } from "@/containers/activeSection";
+import { useActiveSectionContext } from "@/containers/ActiveSection";
 
-export default function Intro() {
+interface IntroProps {}
+
+const Intro: React.FC<IntroProps> = () => {
   const { ref } = useSectionInView("home", 0.7);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
@@ -31,6 +32,7 @@ export default function Intro() {
       messageTextarea?.focus();
     }, 300);
   };
+
   return (
     <section
       ref={ref}
@@ -120,4 +122,6 @@ export default function Intro() {
       </motion.div>
     </section>
   );
-}
+};
+
+export default Intro;

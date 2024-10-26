@@ -1,27 +1,44 @@
 "use client";
-import React, { useRef, useState } from "react";
+
+import { type FC, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { useSectionInView } from "@/lib/useInView";
 import SubmitButton from "./SubmitButton";
 import { Fade } from "react-awesome-reveal";
 
-const Contact = () => {
+interface ContactProps {}
+
+interface FormState {
+  isSending: boolean;
+  isSuccess: boolean;
+  error: string;
+}
+
+interface FormData {
+  email: string | null;
+  message: string | null;
+}
+
+const Contact: FC<ContactProps> = () => {
   const { ref } = useSectionInView("#contact", 0.6);
   const formRef = useRef<HTMLFormElement>(null);
-  const [isSending, setIsSending] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState("");
+  const [formState, setFormState] = useState<FormState>({
+    isSending: false,
+    isSuccess: false,
+    error: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSending(true);
-    setError("");
+    setFormState(prev => ({ ...prev, isSending: true, error: "" }));
 
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData(form);
-    const email = formData.get("senderEmail");
-    const message = formData.get("message");
+    const data: FormData = {
+      email: formData.get("senderEmail") as string,
+      message: formData.get("message") as string,
+    };
 
     try {
       const response = await fetch("/api/messages", {
@@ -29,7 +46,7 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -37,13 +54,14 @@ const Contact = () => {
       }
 
       form.reset();
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 3000);
+      setFormState(prev => ({ ...prev, isSuccess: true }));
+      setTimeout(() => setFormState(prev => ({ ...prev, isSuccess: false })), 3000);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Wystąpił błąd");
-      setTimeout(() => setError(""), 3000);
+      const errorMessage = err instanceof Error ? err.message : "Wystąpił błąd";
+      setFormState(prev => ({ ...prev, error: errorMessage }));
+      setTimeout(() => setFormState(prev => ({ ...prev, error: "" })), 3000);
     } finally {
-      setIsSending(false);
+      setFormState(prev => ({ ...prev, isSending: false }));
     }
   };
 
@@ -101,7 +119,7 @@ const Contact = () => {
             required
             maxLength={500}
             placeholder={"Your email"}
-            disabled={isSending}
+            disabled={formState.isSending}
           />
           <textarea
             className="h-52 my-3 rounded-lg resize-none w-full p-4
@@ -120,17 +138,16 @@ const Contact = () => {
             placeholder={"Your message"}
             required
             maxLength={5000}
-            disabled={isSending}
+            disabled={formState.isSending}
           />
           <div className="mt-2">
-            <SubmitButton text={isSending ? "Sending..." : "Submit"} />
+            <SubmitButton text={formState.isSending ? "Sending..." : "Submit"} />
           </div>
         </form>
       </Fade>
 
-      {/* Powiadomienia */}
       <AnimatePresence>
-        {isSuccess && (
+        {formState.isSuccess && (
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -142,7 +159,7 @@ const Contact = () => {
             Message sent successfully!
           </motion.div>
         )}
-        {error && (
+        {formState.error && (
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

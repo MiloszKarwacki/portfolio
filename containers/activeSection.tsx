@@ -1,24 +1,33 @@
-"use client";
+'use client';
+import { createContext, useContext, useState, ReactNode } from "react";
 import { SectionName } from "@/lib/types";
-import React, { useState, createContext, useContext } from "react";
 
-type ActiveSectionContextProvideProps = {
-  children: React.ReactNode;
-};
+interface ActiveSectionContextProviderProps {
+  children: ReactNode;
+}
 
-type ActiveSectionContextType = {
+interface ActiveSectionContextType {
   activeSection: SectionName;
   setActiveSection: React.Dispatch<React.SetStateAction<SectionName>>;
   timeOfLastClick: number;
   setTimeOfLastClick: React.Dispatch<React.SetStateAction<number>>;
-};
+}
 
-export const ActiveSectionContext =
-  createContext<ActiveSectionContextType | null>(null);
+export const ActiveSectionContext = createContext<ActiveSectionContextType | null>(null);
 
-export default function ActiveSectionContextProvider({
-  children,
-}: ActiveSectionContextProvideProps) {
+export function useActiveSectionContext() {
+  const context = useContext(ActiveSectionContext);
+  
+  if (context === null) {
+    throw new Error(
+      "useActiveSectionContext must be used within an ActiveSectionContextProvider"
+    );
+  }
+  
+  return context;
+}
+
+export default function ActiveSectionContextProvider({ children }: ActiveSectionContextProviderProps) {
   const [activeSection, setActiveSection] = useState<SectionName>("#home");
   const [timeOfLastClick, setTimeOfLastClick] = useState(0);
 
@@ -34,16 +43,4 @@ export default function ActiveSectionContextProvider({
       {children}
     </ActiveSectionContext.Provider>
   );
-}
-
-export function useActiveSectionContext() {
-  const context = useContext(ActiveSectionContext);
-
-  if (context === null) {
-    throw new Error(
-      "useActiveSectionContext must be used within an ActiveSectionContextProvider"
-    );
-  }
-
-  return context;
 }

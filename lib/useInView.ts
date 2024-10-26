@@ -1,5 +1,4 @@
-
-import { useActiveSectionContext } from "@/containers/activeSection";
+import { useActiveSectionContext } from "@/containers/ActiveSection";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import type { SectionName } from "./types";

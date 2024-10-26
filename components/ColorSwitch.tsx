@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { type FC, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface SwitchProps {
@@ -7,11 +7,7 @@ interface SwitchProps {
   setActiveButton: () => void;
 }
 
-export default function Switch({
-  activeButton,
-  hiddenButton,
-  setActiveButton,
-}: SwitchProps) {
+const Switch: FC<SwitchProps> = ({ activeButton, hiddenButton, setActiveButton }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const switchVariants = {
@@ -31,14 +27,26 @@ export default function Switch({
             exit="hidden"
             variants={switchVariants}
             transition={{ duration: 0.3 }}
-            className="hidden md:flex items-center justify-center w-[2rem] h-[2rem] rounded-full bg-opacity-20 backdrop-blur-md bg-white dark:bg-gray-800 dark:bg-opacity-20 border border-gray-200 dark:border-gray-700"
+            className="hidden md:flex items-center justify-center w-[2rem] h-[2rem]
+              rounded-full
+              bg-background-transparent-light backdrop-blur-md
+              border border-ui-border-light
+              dark:bg-background-transparent-dark
+              dark:border-ui-border-dark"
           >
             {hiddenButton}
           </motion.button>
         )}
       </AnimatePresence>
+      
       <motion.button
-        className="w-[3rem] h-[3rem] flex justify-center items-center rounded-full bg-opacity-20 backdrop-blur-md bg-white dark:bg-gray-800 dark:bg-opacity-20 border border-gray-200 dark:border-gray-700 shadow-lg"
+        className="w-[3rem] h-[3rem] flex justify-center items-center
+          rounded-full
+          bg-background-transparent-light backdrop-blur-md
+          border border-ui-border-light
+          shadow-xl dark:shadow-xl-dark
+          dark:bg-background-transparent-dark
+          dark:border-ui-border-dark"
         variants={switchVariants}
         initial="visible"
         whileHover="hover"
@@ -50,4 +58,6 @@ export default function Switch({
       </motion.button>
     </div>
   );
-}
+};
+
+export default Switch;

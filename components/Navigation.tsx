@@ -1,24 +1,25 @@
 "use client";
 
-import React from "react";
+import { FC } from "react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { Link } from "@/lib/types";
-import { useActiveSectionContext } from "@/containers/activeSection";
+import { useActiveSectionContext } from "@/containers/ActiveSection";
 import { motion } from "framer-motion";
 
-type NavigationProps = { links: Link[] };
+interface NavigationProps {
+  links: Link[];
+}
 
-const Navigation = ({ links }: NavigationProps) => {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+const Navigation: FC<NavigationProps> = ({ links }) => {
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <nav className="hidden md:flex items-center justify-center fixed z-[999] w-full mt-4">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex p-1  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+        className="flex p-1 rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
       >
         <motion.ul
           initial={{ y: -100, opacity: 0 }}

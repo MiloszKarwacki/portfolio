@@ -1,11 +1,11 @@
-import React from "react";
+import { FC } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
-type SubmitButtoProps = {
+interface SubmitButtonProps {
   text: string;
-};
+}
 
-export default function SubmitButton({ text }: SubmitButtoProps) {
+const SubmitButton: FC<SubmitButtonProps> = ({ text }) => {
   return (
     <button
       type="submit"
@@ -28,4 +28,6 @@ export default function SubmitButton({ text }: SubmitButtoProps) {
       )}
     </button>
   );
-}
+};
+
+export default SubmitButton;

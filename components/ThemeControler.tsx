@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "@/containers/theme-context";
+import { useTheme } from "@/containers/ThemeContext";
 import React from "react";
 import Switch from "./ColorSwitch";
 import { Moon, Sun } from "lucide-react";

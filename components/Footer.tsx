@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const Footer = () => {
+interface FooterProps {}
+
+const Footer: React.FC<FooterProps> = () => {
   const controls = useAnimation();
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const { ref, inView } = useInView({
     threshold: 0.95,
   });
