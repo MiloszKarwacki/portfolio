@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { Link } from "@/lib/types";
 import { useActiveSectionContext } from "@/containers/ActiveSection";
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 interface NavigationProps {
   links: Link[];
@@ -13,6 +14,7 @@ interface NavigationProps {
 
 const Navigation: FC<NavigationProps> = ({ links }) => {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const t = useTranslations('navigation');
 
   return (
     <nav className="hidden md:flex items-center justify-center fixed z-[999] w-full mt-4">
@@ -45,7 +47,7 @@ const Navigation: FC<NavigationProps> = ({ links }) => {
                   setTimeOfLastClick(Date.now());
                 }}
               >
-                {link.nameEng}
+                {t(link.hash.replace('#', ''))}
                 {link.hash === activeSection && (
                   <motion.span
                     transition={{

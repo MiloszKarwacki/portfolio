@@ -6,6 +6,7 @@ import SectionHeading from "./SectionHeading";
 import { useSectionInView } from "@/lib/useInView";
 import SubmitButton from "./SubmitButton";
 import { Fade } from "react-awesome-reveal";
+import { useTranslations } from 'next-intl';
 
 interface ContactProps {}
 
@@ -23,6 +24,7 @@ interface FormData {
 const Contact: FC<ContactProps> = () => {
   const { ref } = useSectionInView("#contact", 0.6);
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useTranslations('contact');
   const [formState, setFormState] = useState<FormState>({
     isSending: false,
     isSuccess: false,
@@ -50,15 +52,14 @@ const Contact: FC<ContactProps> = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Błąd podczas wysyłania wiadomości");
+        throw new Error(t('notifications.error'));
       }
 
       form.reset();
       setFormState(prev => ({ ...prev, isSuccess: true }));
       setTimeout(() => setFormState(prev => ({ ...prev, isSuccess: false })), 3000);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Wystąpił błąd";
-      setFormState(prev => ({ ...prev, error: errorMessage }));
+      setFormState(prev => ({ ...prev, error: t('notifications.error') }));
       setTimeout(() => setFormState(prev => ({ ...prev, error: "" })), 3000);
     } finally {
       setFormState(prev => ({ ...prev, isSending: false }));
@@ -67,35 +68,17 @@ const Contact: FC<ContactProps> = () => {
 
   return (
     <motion.section className="mb-16 relative" id="contact" ref={ref}>
-      <Fade
-        direction="up"
-        delay={200}
-        cascade
-        damping={1e-1}
-        triggerOnce={true}
-      >
-        <SectionHeading>{"Contact"}</SectionHeading>
+      <Fade direction="up" delay={200} cascade damping={1e-1} triggerOnce={true}>
+        <SectionHeading>{t('title')}</SectionHeading>
       </Fade>
 
-      <Fade
-        direction="up"
-        delay={300}
-        cascade
-        damping={1e-1}
-        triggerOnce={true}
-      >
+      <Fade direction="up" delay={300} cascade damping={1e-1} triggerOnce={true}>
         <p className="text-text-muted-light dark:text-text-muted-dark -mt-6">
-          {"Feel free to contact me directly through this form"}
+          {t('subtitle')}
         </p>
       </Fade>
 
-      <Fade
-        direction="up"
-        delay={400}
-        cascade
-        damping={1e-1}
-        triggerOnce={true}
-      >
+      <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
         <form
           ref={formRef}
           className="mt-10 flex flex-col items-center"
@@ -118,7 +101,7 @@ const Contact: FC<ContactProps> = () => {
             type="email"
             required
             maxLength={500}
-            placeholder={"Your email"}
+            placeholder={t('form.email')}
             disabled={formState.isSending}
           />
           <textarea
@@ -135,13 +118,15 @@ const Contact: FC<ContactProps> = () => {
               transition-colors
               disabled:opacity-50 disabled:cursor-not-allowed"
             name="message"
-            placeholder={"Your message"}
+            placeholder={t('form.message')}
             required
             maxLength={5000}
             disabled={formState.isSending}
           />
           <div className="mt-2">
-            <SubmitButton text={formState.isSending ? "Sending..." : "Submit"} />
+            <SubmitButton 
+              text={formState.isSending ? t('form.sending') : t('form.submit')} 
+            />
           </div>
         </form>
       </Fade>
@@ -156,7 +141,7 @@ const Contact: FC<ContactProps> = () => {
               bg-state-success text-text-inverse-light
               px-6 py-3 rounded-full shadow-xl dark:shadow-xl-dark z-50"
           >
-            Message sent successfully!
+            {t('notifications.success')}
           </motion.div>
         )}
         {formState.error && (
@@ -168,7 +153,7 @@ const Contact: FC<ContactProps> = () => {
               bg-state-error text-text-inverse-light
               px-6 py-3 rounded-full shadow-xl dark:shadow-xl-dark z-50"
           >
-            {"Something went wrong"}
+            {t('notifications.error')}
           </motion.div>
         )}
       </AnimatePresence>

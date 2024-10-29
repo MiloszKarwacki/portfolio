@@ -1,0 +1,63 @@
+{
+  "navigation": {
+    "home": "Start",
+    "about": "O mnie",
+    "projects": "Projekty",
+    "skills": "Umiejętności",
+    "contact": "Kontakt"
+  },
+  "intro": {
+    "title": "Tworzę Nowoczesne Rozwiązania Cyfrowe",
+    "subtitle": "Jestem Full Stack Developerem i Architektem Cyfrowym specjalizującym się w budowaniu innowacyjnych rozwiązań webowych łączących czysty design z zaawansowaną funkcjonalnością.",
+    "connect": "Kontakt"
+  },
+  "about": {
+    "title": "O mnie",
+    "mission": {
+      "title": "Moja misja",
+      "description": "Moją misją jest tworzenie najnowocześniejszych rozwiązań cyfrowych łączących automatyzację, integrację AI i nowoczesny design. Skupiam się na tworzeniu potężnych aplikacji, które nie tylko świetnie wyglądają, ale także wykorzystują najnowsze technologie do rozwiązywania rzeczywistych problemów."
+    },
+    "vision": {
+      "title": "Moja wizja",
+      "description": "Wizualizuję przyszłość, w której technologia płynnie wzmacnia ludzkie możliwości. Poprzez innowacyjne rozwiązania cyfrowe, implementację AI i intuicyjny design, dążę do tworzenia aplikacji, które mają znaczący wpływ na sposób interakcji ludzi z technologią."
+    }
+  },
+  "projects": {
+    "title": "Moje Projekty",
+    "items": {
+      "app1": {
+        "title": "Aplikacja 1",
+        "description": "Projekt w trakcie rozwoju. Aktualnie pracuję nad implementacją nowych funkcji i ulepszeń. Śledź kolejne aktualizacje!"
+      },
+      "app2": {
+        "title": "Aplikacja 2",
+        "description": "W trakcie realizacji. Ten ekscytujący projekt jest budowany z wykorzystaniem nowoczesnych technologii i najlepszych praktyk."
+      },
+      "app3": {
+        "title": "Aplikacja 3",
+        "description": "Obecnie w fazie rozwoju. Tworzę innowacyjne rozwiązania z wykorzystaniem najnowszych technologii."
+      },
+      "app4": {
+        "title": "Aplikacja 4",
+        "description": "W fazie rozwoju. Pracuję nad stworzeniem potężnej i przyjaznej dla użytkownika aplikacji."
+      }
+    }
+  },
+  "skills": {
+    "title": "Moje Umiejętności"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Skontaktuj się ze mną bezpośrednio przez ten formularz",
+    "form": {
+      "email": "Twój email",
+      "message": "Twoja wiadomość",
+      "submit": "Wyślij",
+      "sending": "Wysyłanie..."
+    },
+    "notifications": {
+      "success": "Wiadomość wysłana pomyślnie!",
+      "error": "Coś poszło nie tak"
+    }
+  }
+}

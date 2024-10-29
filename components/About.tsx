@@ -3,15 +3,15 @@ import React, { FC } from "react";
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
 import { useSectionInView } from "@/lib/useInView";
-
-//Animation
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
+import { useTranslations } from 'next-intl';
 
 interface AboutProps {}
 
 const About: FC<AboutProps> = () => {
   const { ref } = useSectionInView("#about", 0.5);
+  const t = useTranslations('about');
 
   return (
     <motion.section
@@ -30,7 +30,7 @@ const About: FC<AboutProps> = () => {
           damping={1e-1}
           triggerOnce={true}
         >
-          <SectionHeading>About me</SectionHeading>
+          <SectionHeading>{t('title')}</SectionHeading>
         </Fade>
 
         <div className="grid xl:grid-cols-2 lg:text-start">
@@ -44,7 +44,7 @@ const About: FC<AboutProps> = () => {
                   damping={1e-1}
                   triggerOnce={true}
                 >
-                  <h3 className="font-bold mt-6">My mission</h3>
+                  <h3 className="font-bold mt-6">{t('mission.title')}</h3>
                 </Fade>
                 <Fade
                   direction="up"
@@ -54,11 +54,7 @@ const About: FC<AboutProps> = () => {
                   triggerOnce={true}
                 >
                   <p className="mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Provident molestias aspernatur accusantium vitae
-                    consequuntur sunt impedit voluptates facere nostrum! Illum
-                    deserunt culpa aspernatur voluptas nostrum facilis a, omnis
-                    dolorum vel!
+                    {t('mission.description')}
                   </p>
                 </Fade>
                 <Fade
@@ -68,7 +64,7 @@ const About: FC<AboutProps> = () => {
                   damping={1e-1}
                   triggerOnce={true}
                 >
-                  <h3 className="font-bold mt-6">My Vision</h3>
+                  <h3 className="font-bold mt-6">{t('vision.title')}</h3>
                 </Fade>
                 <Fade
                   direction="up"
@@ -78,10 +74,7 @@ const About: FC<AboutProps> = () => {
                   triggerOnce={true}
                 >
                   <p className="mt-2 leading-relaxed text-sm text-gray-700 dark:text-white/70">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                    quam numquam vero repudiandae voluptas, illo voluptatibus
-                    rerum eos facilis vel quidem, tenetur exercitationem?
-                    Perspiciatis amet ipsam voluptates minus debitis totam!
+                    {t('vision.description')}
                   </p>
                 </Fade>
               </div>
@@ -95,7 +88,6 @@ const About: FC<AboutProps> = () => {
               damping={1e-1}
               triggerOnce={true}
             >
-              {/* {Right Image} */}
               <Image
                 src="/about.png"
                 alt="About Me"

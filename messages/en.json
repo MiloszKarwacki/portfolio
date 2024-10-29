@@ -1,0 +1,63 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "intro": {
+    "title": "Crafting Modern Digital Experiences",
+    "subtitle": "I'm a Full Stack Developer & Digital Architect specializing in building innovative web solutions that combine clean design with powerful functionality.",
+    "connect": "Contact"
+  },
+  "about": {
+    "title": "About me",
+    "mission": {
+      "title": "My mission",
+      "description": "My mission is to create cutting-edge digital solutions that combine automation, AI integration, and modern design. I focus on developing powerful applications that not only look great but also leverage the latest technologies to solve real-world problems."
+    },
+    "vision": {
+      "title": "My Vision",
+      "description": "I envision a future where technology seamlessly enhances human capabilities. Through innovative digital solutions, AI implementation, and intuitive design, I strive to create applications that make a meaningful impact on how people interact with technology."
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "items": {
+      "app1": {
+        "title": "Application 1",
+        "description": "Project in development. I'm currently working on implementing new features and improvements. Stay tuned for updates!"
+      },
+      "app2": {
+        "title": "Application 2",
+        "description": "Work in progress. This exciting project is being built with modern technologies and best practices in mind."
+      },
+      "app3": {
+        "title": "Application 3",
+        "description": "Currently under development. Building innovative solutions with cutting-edge technologies."
+      },
+      "app4": {
+        "title": "Application 4",
+        "description": "In development phase. Working on creating a powerful and user-friendly application."
+      }
+    }
+  },
+  "skills": {
+    "title": "My Skills"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Feel free to contact me directly through this form",
+    "form": {
+      "email": "Your email",
+      "message": "Your message",
+      "submit": "Submit",
+      "sending": "Sending..."
+    },
+    "notifications": {
+      "success": "Message sent successfully!",
+      "error": "Something went wrong"
+    }
+  }
+}

@@ -11,20 +11,35 @@ const Switch: FC<SwitchProps> = ({ activeButton, hiddenButton, setActiveButton }
   const [isHovered, setIsHovered] = useState(false);
 
   const switchVariants = {
-    visible: { scale: 1, opacity: 1, y: -15, x: 25 },
-    hover: { scale: 1.1 },
-    hidden: { scale: 0.5, opacity: 0, y: 50, x: 25 },
+    initial: { 
+      scale: 0.5, 
+      opacity: 0, 
+      y: 0,
+      x: 10, 
+    },
+    visible: { 
+      scale: 1, 
+      opacity: 1, 
+      y: -35, 
+      x: 10,
+    },
+    exit: { 
+      scale: 0.5, 
+      opacity: 0, 
+      y: 0,
+      x: 10,
+    }
   };
 
   return (
-    <div>
+    <div className="relative">
       <AnimatePresence>
         {isHovered && (
           <motion.button
             key="languageSwitcher"
-            initial="hidden"
+            initial="initial"
             animate="visible"
-            exit="hidden"
+            exit="exit"
             variants={switchVariants}
             transition={{ duration: 0.3 }}
             className="hidden md:flex items-center justify-center w-[2rem] h-[2rem]
@@ -32,7 +47,8 @@ const Switch: FC<SwitchProps> = ({ activeButton, hiddenButton, setActiveButton }
               bg-background-transparent-light backdrop-blur-md
               border border-ui-border-light
               dark:bg-background-transparent-dark
-              dark:border-ui-border-dark"
+              dark:border-ui-border-dark
+              absolute"
           >
             {hiddenButton}
           </motion.button>
@@ -46,8 +62,11 @@ const Switch: FC<SwitchProps> = ({ activeButton, hiddenButton, setActiveButton }
           border border-ui-border-light
           shadow-xl dark:shadow-xl-dark
           dark:bg-background-transparent-dark
-          dark:border-ui-border-dark"
-        variants={switchVariants}
+          dark:border-ui-border-dark
+          relative z-20" // Dodajemy z-index do głównego przycisku
+        variants={{
+          hover: { scale: 1.1 }
+        }}
         initial="visible"
         whileHover="hover"
         onMouseEnter={() => setIsHovered(true)}

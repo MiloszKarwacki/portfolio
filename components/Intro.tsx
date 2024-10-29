@@ -4,18 +4,18 @@ import Link from "next/link";
 import { BsInstagram } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { Mail } from "lucide-react";
-
-//Animation
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/useInView";
 import { useActiveSectionContext } from "@/containers/ActiveSection";
+import { useTranslations } from 'next-intl';
 
 interface IntroProps {}
 
 const Intro: React.FC<IntroProps> = () => {
   const { ref } = useSectionInView("home", 0.7);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const t = useTranslations('intro');
 
   const handleConnectClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -85,10 +85,10 @@ const Intro: React.FC<IntroProps> = () => {
       >
         <h1 className="mb-12 mt-4 text-2xl sm:text-4xl">
           <span className="font-medium !leading-[1.5]">
-            Lorem, ipsum dolor sit amet coś tam...
+            {t('title')}
           </span>{" "}
           <p className="text-[14px]">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            {t('subtitle')}
           </p>
         </h1>
       </Fade>
@@ -103,17 +103,17 @@ const Intro: React.FC<IntroProps> = () => {
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition"
           onClick={handleConnectClick}
         >
-          Connect <Mail color={"#9ca3af"} />
+          {t('connect')} <Mail color={"#9ca3af"} />
         </Link>
         <a
-          href="#"
+          href="https://instagram.com"
           target="_blank"
           className="bg-gray-900 text-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
         >
           <BsInstagram />
         </a>
         <a
-          href="#"
+          href="https://github.com"
           target="_blank"
           className="bg-gray-900 text-white p-4 text-[1.35rem] flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
         >

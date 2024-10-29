@@ -22,35 +22,27 @@ export const links: Link[] = [
 
 export const projectsData: ProjectInfo[] = [
     {
-        title: "First App",
-        description: 
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
-        tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
+        translationKey: "app1",
         imageUrl: "/image1.png",
+        tags: ["React", "Nextjs", "MongoDB", "Tailwind", "NodeJS"],
         link: "https://www.google.com",
     },
     {
-        title: "Second App",
-        description: 
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
-        tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
+        translationKey: "app2",
         imageUrl: "/image2.png",
+        tags: ["React", "Nextjs", "MongoDB", "Tailwind", "NodeJS"],
         link: "https://www.google.com",
     },
     {
-        title: "Third App",
-        description: 
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
-        tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
+        translationKey: "app3",
         imageUrl: "/image3.png",
+        tags: ["React", "Nextjs", "MongoDB", "Tailwind", "NodeJS"],
         link: "https://www.google.com",
     },
     {
-        title: "Fourth Theme",
-        description: 
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maxime aperiam recusandae nemo incidunt iusto reiciendis consequuntur maiores suscipit!",
-        tags: ["React", "Nextjs", "MongoDB", "Tailwind","NodeJS"],
+        translationKey: "app4",
         imageUrl: "/image4.png",
+        tags: ["React", "Nextjs", "MongoDB", "Tailwind", "NodeJS"],
         link: "https://www.google.com",
     }
 ];

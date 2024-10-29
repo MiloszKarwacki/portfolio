@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         // Main theme colors
         primary: {
-          light: '#fbe2e3',  // Light pink gradient
+          light: '#fbe2e3 ',  // Light pink gradient
           dark: '#946263',   // Dark pink gradient
         },
         secondary: {

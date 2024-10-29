@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { Link } from "@/lib/types";
 import NextLink from "next/link";
@@ -6,6 +7,7 @@ import Hamburger from "hamburger-react";
 import { useActiveSectionContext } from "@/containers/ActiveSection";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
+import { useTranslations } from 'next-intl';
 
 interface HamburgerMenuProps {
   links: Link[];
@@ -13,8 +15,8 @@ interface HamburgerMenuProps {
 
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const t = useTranslations('navigation');
 
   const menuTrigger = {
     visible: { scale: 1, opacity: 0.7, y: 0 },
@@ -91,7 +93,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                     setTimeOfLastClick(Date.now());
                   }}
                 >
-                  {link.nameEng}
+                  {t(link.hash.replace('#', ''))}
                 </NextLink>
               </motion.div>
             ))}

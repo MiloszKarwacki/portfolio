@@ -2,16 +2,17 @@ import { FC, useRef } from "react";
 import Image from "next/image";
 import { ProjectInfo } from "@/lib/types";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 interface ProjectProps extends ProjectInfo {}
 
 const Project: FC<ProjectProps> = ({
-  title,
-  description,
+  translationKey,
   tags,
   imageUrl,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const t = useTranslations('projects.items');
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0.1", "1.33 1"],
@@ -30,9 +31,9 @@ const Project: FC<ProjectProps> = ({
     >
       <section className="bg-white max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
         <div className="p-4 pb-7 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
-          <h3 className="text-2xl font-semibold">{title}</h3>
+          <h3 className="text-2xl font-semibold">{t(`${translationKey}.title`)}</h3>
           <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
-            {description}
+            {t(`${translationKey}.description`)}
           </p>
           <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
             {tags.map((tag, index) => (
@@ -48,7 +49,7 @@ const Project: FC<ProjectProps> = ({
 
         <Image
           src={imageUrl}
-          alt="Project I Worked"
+          alt={t(`${translationKey}.title`)}
           quality={95}
           width={400}
           height={100}
