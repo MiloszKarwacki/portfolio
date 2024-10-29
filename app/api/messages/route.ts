@@ -1,10 +1,13 @@
+// app/api/messages/route.ts
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { sendEmails } from '@/lib/email';
 
 export async function POST(req: Request) {
   try {
     const { email, message } = await req.json();
 
+    // Zapisanie wiadomości do bazy danych
     const newMessage = await prisma.message.create({
       data: {
         email,
@@ -12,11 +15,17 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(newMessage);
+    // Wysłanie maili
+    await sendEmails(email, message);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Message sent successfully'
+    });
   } catch (error) {
-    console.error('Error creating message:', error);
+    console.error('Error processing message:', error);
     return NextResponse.json(
-      { error: 'Failed to create message' },
+      { error: 'Failed to process message' },
       { status: 500 }
     );
   }

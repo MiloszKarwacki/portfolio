@@ -45,9 +45,7 @@ const Switch: FC<SwitchProps> = ({ activeButton, hiddenButton, setActiveButton }
             className="hidden md:flex items-center justify-center w-[2rem] h-[2rem]
               rounded-full
               bg-background-transparent-light backdrop-blur-md
-              border border-ui-border-light
               dark:bg-background-transparent-dark
-              dark:border-ui-border-dark
               absolute"
           >
             {hiddenButton}
@@ -59,11 +57,9 @@ const Switch: FC<SwitchProps> = ({ activeButton, hiddenButton, setActiveButton }
         className="w-[3rem] h-[3rem] flex justify-center items-center
           rounded-full
           bg-background-transparent-light backdrop-blur-md
-          border border-ui-border-light
           shadow-xl dark:shadow-xl-dark
           dark:bg-background-transparent-dark
-          dark:border-ui-border-dark
-          relative z-20" // Dodajemy z-index do głównego przycisku
+          relative z-20"
         variants={{
           hover: { scale: 1.1 }
         }}
