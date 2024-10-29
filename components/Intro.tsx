@@ -10,9 +10,7 @@ import { useSectionInView } from "@/lib/useInView";
 import { useActiveSectionContext } from "@/containers/ActiveSection";
 import { useTranslations } from 'next-intl';
 
-interface IntroProps {}
-
-const Intro: React.FC<IntroProps> = () => {
+const Intro = () => {
   const { ref } = useSectionInView("home", 0.7);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const t = useTranslations('intro');

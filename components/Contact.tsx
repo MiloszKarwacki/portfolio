@@ -1,14 +1,12 @@
 "use client";
 
-import { type FC, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { useSectionInView } from "@/lib/useInView";
 import SubmitButton from "./SubmitButton";
 import { Fade } from "react-awesome-reveal";
 import { useTranslations } from 'next-intl';
-
-interface ContactProps {}
 
 interface FormState {
   isSending: boolean;
@@ -21,7 +19,7 @@ interface FormData {
   message: string | null;
 }
 
-const Contact: FC<ContactProps> = () => {
+const Contact = () => {
   const { ref } = useSectionInView("#contact", 0.6);
   const formRef = useRef<HTMLFormElement>(null);
   const t = useTranslations('contact');
@@ -58,7 +56,7 @@ const Contact: FC<ContactProps> = () => {
       form.reset();
       setFormState(prev => ({ ...prev, isSuccess: true }));
       setTimeout(() => setFormState(prev => ({ ...prev, isSuccess: false })), 3000);
-    } catch (err) {
+    } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
       setFormState(prev => ({ ...prev, error: t('notifications.error') }));
       setTimeout(() => setFormState(prev => ({ ...prev, error: "" })), 3000);
     } finally {

@@ -4,9 +4,7 @@ import { ProjectInfo } from "@/lib/types";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslations } from 'next-intl';
 
-interface ProjectProps extends ProjectInfo {}
-
-const Project: FC<ProjectProps> = ({
+const Project: FC<ProjectInfo> = ({
   translationKey,
   tags,
   imageUrl,

@@ -7,13 +7,12 @@ export async function POST(req: Request) {
   try {
     const { email, message } = await req.json();
 
-    // Zapisanie wiadomości do bazy danych
-    const newMessage = await prisma.message.create({
-      data: {
-        email,
-        message,
-      },
-    });
+    // const newMessage = await prisma.message.create({
+    //   data: {
+    //     email,
+    //     message,
+    //   },
+    // });
 
     // Wysłanie maili
     await sendEmails(email, message);

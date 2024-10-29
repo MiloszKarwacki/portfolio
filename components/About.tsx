@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React from "react";
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
 import { useSectionInView } from "@/lib/useInView";
@@ -7,9 +7,7 @@ import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import { useTranslations } from 'next-intl';
 
-interface AboutProps {}
-
-const About: FC<AboutProps> = () => {
+const About = () => {
   const { ref } = useSectionInView("#about", 0.5);
   const t = useTranslations('about');
 

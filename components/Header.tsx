@@ -1,11 +1,9 @@
-import { FC } from "react";
+
 import Navigation from "../components/Navigation";
 import HamburgerMenu from "../components/HamburgerMenu";
 import { links } from "@/lib/data";
 
-interface HeaderProps {}
-
-const Header: FC<HeaderProps> = () => {
+const Header = () => {
   return (
     <header>
       <HamburgerMenu links={links} />

@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-interface FooterProps {}
-
-const Footer: React.FC<FooterProps> = () => {
+const Footer = () => {
   const controls = useAnimation();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const { ref, inView } = useInView({

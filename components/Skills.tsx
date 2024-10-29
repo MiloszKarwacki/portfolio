@@ -1,12 +1,10 @@
 "use client";
-import { FC } from "react";
+
 import SectionHeading from "./SectionHeading";
 import { skillsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/useInView";
 import { motion } from "framer-motion";
 import { useTranslations } from 'next-intl';
-
-interface SkillsProps {}
 
 const fadeInAnimationVariants = {
   initial: {
@@ -22,7 +20,7 @@ const fadeInAnimationVariants = {
   }),
 };
 
-const Skills: FC<SkillsProps> = () => {
+const Skills = () => {
   const { ref } = useSectionInView("#skills", 0.7);
   const t = useTranslations('skills');
 

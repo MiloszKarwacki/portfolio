@@ -1,14 +1,12 @@
 "use client";
-import { FC } from "react";
+
 import SectionHeading from "./SectionHeading";
 import { projectsData } from "@/lib/data";
 import Project from "./ProjectCard";
 import { useSectionInView } from "@/lib/useInView";
 import { useTranslations } from 'next-intl';
 
-interface ProjectsProps {}
-
-const Projects: FC<ProjectsProps> = () => {
+const Projects = () => {
   const { ref } = useSectionInView("#projects", 0.6);
   const t = useTranslations('projects');
 
