@@ -1,4 +1,3 @@
-// app/api/messages/route.ts
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { sendEmails } from '@/lib/email';
@@ -6,15 +5,6 @@ import { sendEmails } from '@/lib/email';
 export async function POST(req: Request) {
   try {
     const { email, message } = await req.json();
-
-    // const newMessage = await prisma.message.create({
-    //   data: {
-    //     email,
-    //     message,
-    //   },
-    // });
-
-    // Wysłanie maili
     await sendEmails(email, message);
 
     return NextResponse.json({
