@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, ReactNode } from "react";
-import ActiveSectionContextProvider from "./ActiveSection";
+import ActiveSectionContextProvider from "./activeSection";
 
 interface ProvidersProps {
   children: ReactNode;

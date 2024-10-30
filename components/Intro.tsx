@@ -7,7 +7,7 @@ import { Mail } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/useInView";
-import { useActiveSectionContext } from "../containers/ActiveSection";
+import { useActiveSectionContext } from "../containers/activeSection";
 import { useTranslations } from 'next-intl';
 
 const Intro = () => {
