@@ -4,7 +4,7 @@ import { FC } from "react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { Link } from "@/lib/types";
-import { useActiveSectionContext } from "@/containers/ActiveSection";
+import { useActiveSectionContext } from "../containers/ActiveSection";
 import { motion } from "framer-motion";
 import { useTranslations } from 'next-intl';
 

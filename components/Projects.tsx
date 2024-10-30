@@ -3,7 +3,7 @@
 import SectionHeading from "./SectionHeading";
 import { projectsData } from "@/lib/data";
 import Project from "./ProjectCard";
-import { useSectionInView } from "@/lib/useInView";
+import { useSectionInView } from "../lib/useInView";
 import { useTranslations } from 'next-intl';
 
 const Projects = () => {

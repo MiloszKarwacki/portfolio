@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "@/lib/types";
 import NextLink from "next/link";
 import Hamburger from "hamburger-react";
-import { useActiveSectionContext } from "@/containers/ActiveSection";
+import { useActiveSectionContext } from "../containers/ActiveSection";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { useTranslations } from 'next-intl';
