@@ -1,4 +1,3 @@
-// lib/email.ts
 import nodemailer from 'nodemailer';
 
 interface EmailConfig {
@@ -20,7 +19,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Szablon maila dla administratora
 const createAdminEmailTemplate = (email: string, message: string): EmailConfig => ({
   from: process.env.SMTP_USER!,
   to: process.env.ADMIN_EMAIL!,
@@ -34,7 +32,6 @@ const createAdminEmailTemplate = (email: string, message: string): EmailConfig =
   `
 });
 
-// Zaktualizowany szablon maila dla użytkownika z GIFem
 const createUserEmailTemplate = (email: string): EmailConfig => ({
   from: process.env.SMTP_USER!,
   to: email,
@@ -57,12 +54,10 @@ const createUserEmailTemplate = (email: string): EmailConfig => ({
 
 export const sendEmails = async (userEmail: string, message: string) => {
   try {
-    // Wysyłanie maila do administratora
     const adminMailResponse = await transporter.sendMail(
       createAdminEmailTemplate(userEmail, message)
     );
 
-    // Wysyłanie potwierdzenia do użytkownika
     const userMailResponse = await transporter.sendMail(
       createUserEmailTemplate(userEmail)
     );
